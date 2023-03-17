@@ -1,8 +1,37 @@
+import {
+	ApolloClient,
+	createHttpLink,
+	InMemoryCache,
+	gql,
+} from '@apollo/client';
+import { setContext } from '@apollo/client/link/context';
 import PageMeta from '@/components/PageMeta';
 import PageWrapper from '@/components/PageWrapper';
-import Image from 'next/image';
+import StatsCard from '@/components/StatsCard';
 
-export default function Home() {
+export default function Home({ pinnedItems, publicRepos }: any) {
+	const githubLink = 'https://github.com/realstoman';
+
+	// Get public repositories stars
+	const getStars = publicRepos.map((repo: { stargazerCount: any }) => {
+		return repo.stargazerCount;
+	});
+
+	const totalStars = getStars.reduce(
+		(totalStars: any, a: any) => totalStars + a,
+		0
+	);
+
+	// Get public repositories forks
+	const getForks = publicRepos.map((repo: { forkCount: any }) => {
+		return repo.forkCount;
+	});
+
+	const totalForks = getForks.reduce(
+		(totalForks: any, a: any) => totalForks + a,
+		0
+	);
+
 	return (
 		<>
 			<PageMeta title="Github Stats GraphQL" />
@@ -32,27 +61,84 @@ export default function Home() {
 					</div>
 
 					<div className="sm:grid sm:grid-cols-2 gap-2 mt-20">
-						<a
-							href="#"
-							className="block w-full p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
-						>
-							<h5 className="mb-2 text-2xl font-medium tracking-normal text-gray-900 dark:text-white">
-								289 Total Github Stars
-							</h5>
-						</a>
-						<a
-							href="#"
-							className="block w-full p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
-						>
-							<h5 className="mb-2 text-2xl font-medium tracking-normal text-gray-900 dark:text-white">
-								289 Total Github Stars
-							</h5>
-						</a>
-						<div></div>
-						<div></div>
+						<StatsCard
+							stat={totalStars}
+							statOf="Total Github Stars"
+						/>
+						<StatsCard
+							stat={totalForks}
+							statOf="Total Github Forks"
+						/>
+						<StatsCard stat={94} statOf="Total Github Followers" />
+						<StatsCard stat={94} statOf="Total Public Repos" />
 					</div>
 				</main>
 			</PageWrapper>
 		</>
 	);
+}
+
+export async function getStaticProps() {
+	const httpLink = createHttpLink({
+		uri: 'https://api.github.com/graphql',
+	});
+
+	const authLink = setContext((_, { headers }) => {
+		return {
+			headers: {
+				...headers,
+				authorization: `Bearer ${process.env.GITHUB_ACCESS_TOKEN}`,
+			},
+		};
+	});
+
+	const client = new ApolloClient({
+		link: authLink.concat(httpLink),
+		cache: new InMemoryCache(),
+	});
+
+	const { data } = await client.query({
+		query: gql`
+			{
+				user(login: "realstoman") {
+					repositories(first: 50, privacy: PUBLIC) {
+						edges {
+							node {
+								stargazerCount
+								forkCount
+							}
+						}
+					}
+
+					pinnedItems(first: 6) {
+						totalCount
+						edges {
+							node {
+								... on Repository {
+									id
+									name
+									description
+									forkCount
+									url
+									stargazerCount
+								}
+							}
+						}
+					}
+				}
+			}
+		`,
+	});
+
+	const { user } = data;
+	const pinnedItems = user.pinnedItems.edges.map((edge: any) => edge.node);
+
+	const publicRepos = user.repositories.edges.map((edge: any) => edge.node);
+
+	return {
+		props: {
+			pinnedItems,
+			publicRepos,
+		},
+	};
 }
