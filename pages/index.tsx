@@ -41,7 +41,7 @@ export default function Home({ pinnedItems, publicRepos }: any) {
 
 			<PageWrapper>
 				<main className="flex justify-center flex-col items-center">
-					<div className="sm:grid sm:grid-cols-2 gap-2 space-y-2 sm:space-y-0 mt-20">
+					<div className="sm:grid sm:grid-cols-2 gap-2 space-y-2 sm:space-y-0 mt-2">
 						<StatsCard
 							stat={totalStars}
 							statOf="Total Github Stars"
@@ -55,6 +55,36 @@ export default function Home({ pinnedItems, publicRepos }: any) {
 						<StatsCard
 							stat={94}
 							statOf="Total Followers"
+							profileUrl={githubLink}
+						/>
+						<StatsCard
+							stat={totalPublicRepos}
+							statOf="Total Public Repos"
+							profileUrl={githubLink}
+						/>
+						<StatsCard
+							stat={totalPublicRepos}
+							statOf="Total Public Repos"
+							profileUrl={githubLink}
+						/>
+						<StatsCard
+							stat={totalPublicRepos}
+							statOf="Total Public Repos"
+							profileUrl={githubLink}
+						/>
+						<StatsCard
+							stat={totalPublicRepos}
+							statOf="Total Public Repos"
+							profileUrl={githubLink}
+						/>
+						<StatsCard
+							stat={totalPublicRepos}
+							statOf="Total Public Repos"
+							profileUrl={githubLink}
+						/>
+						<StatsCard
+							stat={totalPublicRepos}
+							statOf="Total Public Repos"
 							profileUrl={githubLink}
 						/>
 						<StatsCard
