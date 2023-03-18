@@ -8,6 +8,7 @@ import { setContext } from '@apollo/client/link/context';
 import PageMeta from '@/components/PageMeta';
 import PageWrapper from '@/components/PageWrapper';
 import StatsCard from '@/components/StatsCard';
+import PinnedItem from '@/components/PinnedItem';
 
 export default function Home({
 	pinnedItems,
@@ -78,6 +79,35 @@ export default function Home({
 							statOf="Total Gists"
 							profileUrl={githubLink}
 						/>
+					</div>
+
+					<div className="w-full sm:max-w-2xl">
+						<div className="mb-14 mt-3 flex items-start justify-between space-x-4 overflow-x-scroll bg-scroll sm:mt-4">
+							<div className="ghProjects py-2">
+								<div className="flex items-start justify-between space-x-4">
+									<PinnedItem
+										title="Pinned Item"
+										description="Pinned Item"
+										repoLink="https://github.com"
+									/>
+									<PinnedItem
+										title="Pinned Item"
+										description="Pinned Item"
+										repoLink="https://github.com"
+									/>
+									<PinnedItem
+										title="Pinned Item"
+										description="Pinned Item"
+										repoLink="https://github.com"
+									/>
+									<PinnedItem
+										title="Pinned Item"
+										description="Pinned Item"
+										repoLink="https://github.com"
+									/>
+								</div>
+							</div>
+						</div>
 					</div>
 				</main>
 			</PageWrapper>
