@@ -81,30 +81,19 @@ export default function Home({
 						/>
 					</div>
 
-					<div className="w-full sm:max-w-2xl">
-						<div className="mb-14 mt-3 flex items-start justify-between space-x-4 overflow-x-scroll bg-scroll sm:mt-4">
+					<div className="w-full sm:max-w-2xl mt-8">
+						<div className="mb-14 flex items-start justify-between space-x-4 overflow-x-scroll bg-scroll">
 							<div className="ghProjects py-2">
 								<div className="flex items-start justify-between space-x-4">
-									<PinnedItem
-										title="Pinned Item"
-										description="Pinned Item"
-										repoLink="https://github.com"
-									/>
-									<PinnedItem
-										title="Pinned Item"
-										description="Pinned Item"
-										repoLink="https://github.com"
-									/>
-									<PinnedItem
-										title="Pinned Item"
-										description="Pinned Item"
-										repoLink="https://github.com"
-									/>
-									<PinnedItem
-										title="Pinned Item"
-										description="Pinned Item"
-										repoLink="https://github.com"
-									/>
+									{pinnedItems.map((item: any) => {
+										return (
+											<PinnedItem
+												title={item.name}
+												description={item.description}
+												repoLink={item.url}
+											/>
+										);
+									})}
 								</div>
 							</div>
 						</div>
@@ -159,9 +148,7 @@ export async function getStaticProps() {
 									id
 									name
 									description
-									forkCount
 									url
-									stargazerCount
 								}
 							}
 						}
