@@ -2,7 +2,7 @@ export default function Footer() {
 	const getDate = new Date().getFullYear();
 
 	return (
-		<footer className=" bg-white rounded-lg shadow dark:bg-gray-800 max-w-xl mb-2 mt-8 flex justify-center items-center container mx-auto">
+		<footer className=" bg-white rounded-lg shadow dark:bg-gray-800 max-w-xl mb-2 mt-4 sm:mt-8 flex justify-center items-center container mx-auto">
 			<div className="w-full py-3 text-center">
 				<span className="text-md text-gray-500 sm:text-center dark:text-gray-400">
 					{getDate} - Developed with{' '}
