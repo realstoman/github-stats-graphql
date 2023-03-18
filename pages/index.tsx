@@ -8,7 +8,6 @@ import { setContext } from '@apollo/client/link/context';
 import PageMeta from '@/components/PageMeta';
 import PageWrapper from '@/components/PageWrapper';
 import StatsCard from '@/components/StatsCard';
-import Heading from '@/components/Heading';
 
 export default function Home({ pinnedItems, publicRepos }: any) {
 	const githubLink = 'https://github.com/realstoman';
@@ -42,23 +41,6 @@ export default function Home({ pinnedItems, publicRepos }: any) {
 
 			<PageWrapper>
 				<main className="flex justify-center flex-col items-center">
-					<div className="text-center pt-10">
-						<h1 className="mb-4 text-2xl leading-7 font-extrabold sm:leading-none tracking-normal text-gray-900 md:text-4xl lg:text-5xl dark:text-white">
-							Retrieve Data Using{' '}
-							<Heading title="Github GraphQL API" /> and{' '}
-							<Heading title="Apollo Client" />
-						</h1>
-					</div>
-
-					<div className="mt-4 text-md tracking-normal text-center">
-						<p>
-							The data is being retrieved for the username:{' '}
-							<code className="px-2 py-0.5 text-white bg-blue-600 rounded dark:bg-blue-500">
-								@realstoman
-							</code>
-						</p>
-					</div>
-
 					<div className="sm:grid sm:grid-cols-2 gap-2 space-y-2 sm:space-y-0 mt-20">
 						<StatsCard
 							stat={totalStars}
