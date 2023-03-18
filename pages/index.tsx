@@ -9,7 +9,13 @@ import PageMeta from '@/components/PageMeta';
 import PageWrapper from '@/components/PageWrapper';
 import StatsCard from '@/components/StatsCard';
 
-export default function Home({ pinnedItems, publicRepos }: any) {
+export default function Home({
+	pinnedItems,
+	publicRepos,
+	totalFollowers,
+	totalFollowing,
+	totalGists,
+}: any) {
 	const githubLink = 'https://github.com/realstoman';
 
 	// Total public repos
@@ -41,7 +47,7 @@ export default function Home({ pinnedItems, publicRepos }: any) {
 
 			<PageWrapper>
 				<main className="flex justify-center flex-col items-center">
-					<div className="sm:grid sm:grid-cols-2 gap-2 space-y-2 sm:space-y-0 mt-2">
+					<div className="sm:grid sm:grid-cols-2 gap-2 space-y-2 sm:space-y-0 mt-10 sm:mt-6">
 						<StatsCard
 							stat={totalStars}
 							statOf="Total Github Stars"
@@ -53,43 +59,23 @@ export default function Home({ pinnedItems, publicRepos }: any) {
 							profileUrl={githubLink}
 						/>
 						<StatsCard
-							stat={94}
+							stat={totalPublicRepos}
+							statOf="Total Public Repos"
+							profileUrl={githubLink}
+						/>
+						<StatsCard
+							stat={totalFollowers}
 							statOf="Total Followers"
 							profileUrl={githubLink}
 						/>
 						<StatsCard
-							stat={totalPublicRepos}
-							statOf="Total Public Repos"
+							stat={totalFollowing}
+							statOf="Total Following"
 							profileUrl={githubLink}
 						/>
 						<StatsCard
-							stat={totalPublicRepos}
-							statOf="Total Public Repos"
-							profileUrl={githubLink}
-						/>
-						<StatsCard
-							stat={totalPublicRepos}
-							statOf="Total Public Repos"
-							profileUrl={githubLink}
-						/>
-						<StatsCard
-							stat={totalPublicRepos}
-							statOf="Total Public Repos"
-							profileUrl={githubLink}
-						/>
-						<StatsCard
-							stat={totalPublicRepos}
-							statOf="Total Public Repos"
-							profileUrl={githubLink}
-						/>
-						<StatsCard
-							stat={totalPublicRepos}
-							statOf="Total Public Repos"
-							profileUrl={githubLink}
-						/>
-						<StatsCard
-							stat={totalPublicRepos}
-							statOf="Total Public Repos"
+							stat={totalGists}
+							statOf="Total Gists"
 							profileUrl={githubLink}
 						/>
 					</div>
@@ -151,12 +137,16 @@ export async function getStaticProps() {
 						}
 					}
 
-					followers(first: 100) {
-						edges {
-							node {
-								id
-							}
-						}
+					followers {
+						totalCount
+					}
+
+					following {
+						totalCount
+					}
+
+					gists {
+						totalCount
 					}
 				}
 			}
@@ -172,11 +162,23 @@ export async function getStaticProps() {
 	// Get public repos of the user
 	const publicRepos = user.repositories.edges.map((edge: any) => edge.node);
 
+	// Get total followers count of the user
+	const totalFollowers = user.followers.totalCount;
+
+	// Get total following count of the user
+	const totalFollowing = user.following.totalCount;
+
+	// Get total following count of the user
+	const totalGists = user.gists.totalCount;
+
 	return {
 		// Pass props to the component
 		props: {
 			pinnedItems,
 			publicRepos,
+			totalFollowers,
+			totalFollowing,
+			totalGists,
 		},
 	};
 }
