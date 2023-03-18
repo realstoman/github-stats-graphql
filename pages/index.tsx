@@ -8,6 +8,7 @@ import { setContext } from '@apollo/client/link/context';
 import PageMeta from '@/components/PageMeta';
 import PageWrapper from '@/components/PageWrapper';
 import StatsCard from '@/components/StatsCard';
+import Heading from '@/components/Heading';
 
 export default function Home({ pinnedItems, publicRepos }: any) {
 	const githubLink = 'https://github.com/realstoman';
@@ -44,13 +45,8 @@ export default function Home({ pinnedItems, publicRepos }: any) {
 					<div className="text-center pt-10">
 						<h1 className="mb-4 text-2xl leading-7 font-extrabold sm:leading-none tracking-normal text-gray-900 md:text-4xl lg:text-5xl dark:text-white">
 							Retrieve Data Using{' '}
-							<span className="text-transparent bg-clip-text bg-gradient-to-r to-pink-500 from-sky-500">
-								Github GraphQL API
-							</span>{' '}
-							and{' '}
-							<span className="text-transparent bg-clip-text bg-gradient-to-r to-pink-500 from-sky-500">
-								Apollo Client
-							</span>
+							<Heading title="Github GraphQL API" /> and{' '}
+							<Heading title="Apollo Client" />
 						</h1>
 					</div>
 

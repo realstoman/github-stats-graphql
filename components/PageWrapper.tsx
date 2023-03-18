@@ -1,5 +1,5 @@
 import React from 'react';
-import Footer from './Footer';
+import Footer from './common/Footer';
 export default function PageWrapper({
 	children,
 }: {
