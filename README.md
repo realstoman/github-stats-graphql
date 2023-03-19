@@ -6,6 +6,13 @@
 
 [https://github-stats-graphql.vercel.app/](https://github-stats-graphql.vercel.app/)
 
+## Features
+
+-   Fetch Github user data using GraphQL and Apollo Client
+-   Reusable components
+-   TypeScript support
+-   Simple and responsive UI
+
 ## Setup
 
 ### Create Github Access Token
@@ -51,6 +58,6 @@ npm run dev
 
 ## Notes
 
--   Coming Soon [I'll be doing a screencast](https://www.youtube.com/c/realstoman). Soon I'll be uploading a video to my YouTube channel where I'll be going through the process of the form validations
+-   Coming Soon [I'll be doing a screencast](https://www.youtube.com/c/realstoman) of this project and will be uploading the video to my Youtube channel
 -   Feel free to use it in your projects
 -   Contributions are welcome
