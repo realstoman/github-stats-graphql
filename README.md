@@ -1,5 +1,3 @@
-# Retrieve Github User Statistics Using GraphQL & Apollo Client
-
 ![Github Stats GraphQL](https://user-images.githubusercontent.com/16396664/226185179-3502d1e9-9bc5-4c53-a1a3-9f898f9f789e.png)
 
 ## Demo URL
