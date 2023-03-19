@@ -88,6 +88,7 @@ export default function Home({
 									{pinnedItems.map((item: any) => {
 										return (
 											<PinnedItem
+												key={item.name}
 												title={item.name}
 												description={item.description}
 												repoLink={item.url}
@@ -110,7 +111,7 @@ export async function getStaticProps() {
 		uri: 'https://api.github.com/graphql',
 	});
 
-	// Create auth link using apollo client
+	// Create an auth link using apollo state and pass in the headers in the return object
 	const authLink = setContext((_, { headers }) => {
 		return {
 			headers: {
@@ -120,7 +121,7 @@ export async function getStaticProps() {
 		};
 	});
 
-	// Create client
+	// Apollo client that gets an auth link and a memory cache constructor
 	const client = new ApolloClient({
 		link: authLink.concat(httpLink),
 		cache: new InMemoryCache(),
@@ -170,7 +171,7 @@ export async function getStaticProps() {
 		`,
 	});
 
-	// Destructure the data
+	// Destructure the data and get the user
 	const { user } = data;
 
 	// Get pinned items of the user
