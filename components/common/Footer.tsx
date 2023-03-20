@@ -11,7 +11,7 @@ export default function Footer() {
 
 					<span className="text-md text-gray-500 sm:text-center dark:text-gray-400">
 						<a
-							href="https://github.com/realstoman/stoman.me"
+							href="https://github.com/realstoman/github-stats-graphql"
 							className="underline text-sky-500"
 							target="_blank"
 						>
