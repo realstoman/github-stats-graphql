@@ -59,3 +59,9 @@ npm run dev
 -   Coming Soon [I'll be doing a screencast](https://www.youtube.com/c/realstoman) of this project and will be uploading the video to my Youtube channel
 -   Feel free to use it in your projects
 -   Contributions are welcome
+
+## Resources
+
+-   [Github GraphQL API Documentations](https://docs.github.com/en/graphql)
+-   [Github GraphQL Explorer](https://docs.github.com/en/graphql/overview/explorer)
+-   [Learn Apollo Client GraphQL](https://www.apollographql.com/docs/react/get-started/)
