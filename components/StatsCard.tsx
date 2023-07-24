@@ -1,12 +1,10 @@
+import { StatsCardTypes } from '@/types/AppTypes';
+
 export default function StatsCard({
 	stat,
 	statOf,
 	profileUrl,
-}: {
-	stat: number;
-	statOf: string;
-	profileUrl: string;
-}) {
+}: StatsCardTypes) {
 	return (
 		<a
 			href={profileUrl}

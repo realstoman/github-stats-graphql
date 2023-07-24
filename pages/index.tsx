@@ -10,6 +10,7 @@ import PageWrapper from '@/components/PageWrapper';
 import StatsCard from '@/components/StatsCard';
 import PinnedItem from '@/components/PinnedItem';
 import AppConstants from '@/constants/AppConstants';
+import { PinnedItemsType } from '@/types/AppTypes';
 
 export default function Home({
 	pinnedItems,
@@ -17,7 +18,7 @@ export default function Home({
 	totalFollowers,
 	totalFollowing,
 	totalGists,
-}: any) {
+}: PinnedItemsType) {
 	const githubLink = 'https://github.com/realstoman';
 
 	// Total public repos
