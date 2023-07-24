@@ -9,6 +9,7 @@ import PageMeta from '@/components/PageMeta';
 import PageWrapper from '@/components/PageWrapper';
 import StatsCard from '@/components/StatsCard';
 import PinnedItem from '@/components/PinnedItem';
+import AppConstants from '@/constants/AppConstants';
 
 export default function Home({
 	pinnedItems,
@@ -83,7 +84,7 @@ export default function Home({
 
 					<div className="w-full sm:max-w-2xl mt-8">
 						<h1 className="mt-4 mb-2 text-2xl font-sans border-b border-gray-200 dark:border-gray-700 pb-1">
-							Pinned Items on Github
+							{AppConstants.pinnedItemTitle}
 						</h1>
 						<div className="mb-14 flex items-start justify-between space-x-4 overflow-x-scroll bg-scroll">
 							<div className="ghProjects py-2">

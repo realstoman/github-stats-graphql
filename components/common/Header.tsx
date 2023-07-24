@@ -1,3 +1,4 @@
+import AppConstants from '@/constants/AppConstants';
 import Heading from '../Heading';
 
 export default function Header() {
@@ -5,7 +6,7 @@ export default function Header() {
 		<div>
 			<div className="text-center pt-10">
 				<h1 className="mb-4 text-3xl leading-9 font-extrabold sm:leading-none tracking-normal text-gray-900 md:text-4xl lg:text-5xl dark:text-white">
-					Retrieve User Data Using{' '}
+					{AppConstants.heading1}{' '}
 					<Heading title="Github GraphQL API" /> and{' '}
 					<Heading title="Apollo Client" />
 				</h1>
@@ -13,12 +14,12 @@ export default function Header() {
 
 			<div className="mt-4 text-sm tracking-normal text-center">
 				<p>
-					The data is being retrieved for the username:{' '}
+					{AppConstants.description}{' '}
 					<code className="px-2 py-0.5 text-white text-md bg-blue-600 rounded dark:bg-blue-500">
-						@realstoman
+						{AppConstants.username}
 					</code>{' '}
 					<br />
-					To get your account stats, update the env file
+					{AppConstants.description2}
 				</p>
 			</div>
 		</div>
