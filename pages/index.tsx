@@ -82,6 +82,9 @@ export default function Home({
 					</div>
 
 					<div className="w-full sm:max-w-2xl mt-8">
+						<h1 className="mt-4 mb-2 text-2xl font-sans border-b border-gray-200 dark:border-gray-700 pb-1">
+							Pinned Items on Github
+						</h1>
 						<div className="mb-14 flex items-start justify-between space-x-4 overflow-x-scroll bg-scroll">
 							<div className="ghProjects py-2">
 								<div className="flex items-start justify-between space-x-4">
