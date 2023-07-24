@@ -15,9 +15,11 @@ export default function Header() {
 			<div className="mt-4 text-sm tracking-normal text-center">
 				<p>
 					{AppConstants.description}{' '}
-					<code className="px-2 py-0.5 text-white text-md bg-blue-600 rounded dark:bg-blue-500">
-						{AppConstants.username}
-					</code>{' '}
+					<a href="https://github.com/realstoman" target="_blank">
+						<code className="px-2 py-0.5 text-white text-md bg-blue-600 rounded hover:bg-blue-800 dark:bg-blue-500 dark:hover:bg-blue-700">
+							{AppConstants.username}
+						</code>{' '}
+					</a>
 					<br />
 					{AppConstants.description2}
 				</p>
