@@ -29,6 +29,7 @@ export default function Home({
 		return repo.stargazerCount;
 	});
 
+	// A Comment
 	const totalStars = getStars.reduce(
 		(totalStars: number, a: number) => totalStars + a,
 		0
